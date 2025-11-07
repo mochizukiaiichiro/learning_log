@@ -1,0 +1,9 @@
+# Python 仮想環境
+venv/
+
+# Python キャッシュ
+__pycache__/
+*.py[cod]
+
+# SQLite データベース
+db.sqlite3
