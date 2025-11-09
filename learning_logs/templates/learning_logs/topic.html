@@ -16,7 +16,8 @@
                           method='post'
                           action="{% url "learning_logs:delete_entry" entry.id %}">
                         {% csrf_token %}
-                        <a href="#" onclick="this.closest('form').submit(); return false;">削除</a>
+                        <a href="#"
+                           onclick="if (confirm('本当に削除しますか？')) { this.closest('form').submit(); } return false;">削除</a>
                     </form>
                 </small>
             </h4>
