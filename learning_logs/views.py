@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
@@ -101,3 +101,13 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
+
+
+# 記事の削除
+@login_required
+def delete_entry(request, entry_id):
+    entry = get_object_or_404(Entry, pk=entry_id)
+
+    if request.method == 'POST':
+        entry.delete()
+        return redirect('learning_logs:topic', topic_id=entry.topic.id)

@@ -18,4 +18,6 @@ urlpatterns = [
     path('new_entry/<int:topic_id>', views.new_entry, name='new_entry'),
     # 記事の編集ページ
     path('edit_entry/<int:entry_id>', views.edit_entry, name='edit_entry'),
+    # 記事の削除
+    path('delete_entry/<int:entry_id>', views.delete_entry, name='delete_entry'),
 ]
