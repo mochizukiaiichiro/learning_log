@@ -5,12 +5,14 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>学習ノート</title>
+        <meta name="description" content="学習ノートアプリ。トピックや記事を管理して学習を記録できます。">
+        <meta name="keywords" content="Python, Django, 学習ノート, Webアプリ">
         {% bootstrap_css %}
         {% bootstrap_javascript %}
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
-            <a class="navbar-brand ms-3" href ="{% url "learning_logs:index" %}">学習ノート</a>
+            <a class="navbar-brand ms-3" href="{% url "learning_logs:index" %}">学習ノート</a>
             <button class="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
@@ -32,9 +34,7 @@
                     {% if user.is_authenticated %}
                         <li class="nav-item">
                             <span class="navbar-text me-3">こんにちは{{ user.username }}さん
-                                <form action="{% url 'users:logout' %}"
-                                      method="post"
-                                      style="display:inline">
+                                <form class="d-inline" action="{% url 'users:logout' %}" method="post">
                                     {% csrf_token %}
                                     <a href="#" onclick="this.closest('form').submit(); return false;">ログアウト</a>
                                 </form>
