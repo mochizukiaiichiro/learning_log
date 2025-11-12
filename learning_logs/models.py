@@ -28,4 +28,5 @@ class Entry(models.Model):
     """モデルの文字列表現を返す"""
 
     def __str__(self):
-        return f'{self.text[:25]}...'
+        # テキストが25文字を超えた場合は、省略記号を付与する
+        return f'{self.text[:25]}...' if len(self.text) > 25 else self.text
