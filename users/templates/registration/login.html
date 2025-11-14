@@ -7,7 +7,7 @@
     <form method='post' action="{% url 'users:login' %}" class="form">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <button name='submit' class="btn btn-primary">ログイン</button>
+        {% bootstrap_button "ログイン" button_type="submit" button_class="btn-primary" %}
         <input type='hidden' name='next' value="{% url 'learning_logs:index' %}">
     </form>
 {% endblock content %}
