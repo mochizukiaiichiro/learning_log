@@ -11,7 +11,7 @@
         {% bootstrap_javascript %}
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border pe-3">
             <a class="navbar-brand ms-3" href="{% url "learning_logs:index" %}">学習ノート</a>
             <button class="navbar-toggler"
                     type="button"
@@ -33,12 +33,13 @@
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <span class="navbar-text me-3">こんにちは{{ user.username }}さん
-                                <form class="d-inline" action="{% url 'users:logout' %}" method="post">
-                                    {% csrf_token %}
-                                    <a href="#" onclick="this.closest('form').submit(); return false;">ログアウト</a>
-                                </form>
-                            </span>
+                            <span class="navbar-text me-3">こんにちは{{ user.username }}さん</span>
+                        </li>
+                        <li class="nav-item">
+                            <form class="d-inline" action="{% url 'users:logout' %}" method="post">
+                                {% csrf_token %}
+                                <a href="#" onclick="this.closest('form').submit(); return false;">ログアウト</a>
+                            </form>
                         </li>
                     {% else %}
                         <li class="nav-item">
